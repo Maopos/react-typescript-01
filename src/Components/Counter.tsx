@@ -16,7 +16,7 @@ const Counter = () => {
       width={[
         '90%', // 0-30em
         null, // 30em-48em
-        '90%', // 48em-62em
+        null, // 48em-62em
         'container.md', // 62em+
       ]}
       p={"5"}

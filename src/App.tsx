@@ -1,6 +1,7 @@
 import "./App.css";
 import { Box, Text, Flex } from "@chakra-ui/react";
 import Counter from "./Components/Counter";
+import Usuario from "./Components/Usuario";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         </Text>
       </Box>
       <Counter/>
+      <Usuario/>
     </Flex>
   );
 }
