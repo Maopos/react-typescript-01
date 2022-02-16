@@ -13,9 +13,15 @@ const Counter = () => {
     <Box
       color={"white"}
       bg={"darkcyan"}
-      w={{ sm: "container.md", md: "container.md" }}
+      width={[
+        '90%', // 0-30em
+        null, // 30em-48em
+        '90%', // 48em-62em
+        'container.md', // 62em+
+      ]}
       p={"5"}
       mt={2}
+      mx={"5"}
       borderRadius={10}
       boxShadow={"2xl"}
     >
