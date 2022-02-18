@@ -2,6 +2,7 @@ import "./App.css";
 import { Box, Text, Flex } from "@chakra-ui/react";
 import Counter from "./Components/Counter";
 import Usuario from "./Components/Usuario";
+import TimerPadre from "./Components/TimerPadre";
 
 function App() {
   return (
@@ -10,10 +11,10 @@ function App() {
         color={"white"}
         bg={"darkcyan"}
         width={[
-          '90%', // 0-30em
+          "90%", // 0-30em
           null, // 30em-48em
-          '90%', // 48em-62em
-          'container.md', // 62em+
+          "90%", // 48em-62em
+          "container.md", // 62em+
         ]}
         p={"1"}
         mt={5}
@@ -24,8 +25,9 @@ function App() {
           Typescript
         </Text>
       </Box>
-      <Counter/>
-      <Usuario/>
+      <Counter />
+      <Usuario />
+      <TimerPadre />
     </Flex>
   );
 }
