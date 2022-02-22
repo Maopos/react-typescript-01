@@ -4,6 +4,8 @@ import Counter from "./Components/Counter";
 import Usuario from "./Components/Usuario";
 import TimerPadre from "./Components/TimerPadre";
 import ContadorReducer from "./Components/ContadorReducer";
+import Formulario from "./Components/Formulario";
+import Formulario2 from "./Components/Formulario2";
 
 function App() {
   return (
@@ -30,6 +32,18 @@ function App() {
       <Usuario />
       <TimerPadre />
       <ContadorReducer />
+      <Formulario />
+      <Formulario2 />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </Flex>
   );
 }
