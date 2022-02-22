@@ -3,6 +3,7 @@ import { Box, Text, Flex } from "@chakra-ui/react";
 import Counter from "./Components/Counter";
 import Usuario from "./Components/Usuario";
 import TimerPadre from "./Components/TimerPadre";
+import ContadorReducer from "./Components/ContadorReducer";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
       <Counter />
       <Usuario />
       <TimerPadre />
+      <ContadorReducer />
     </Flex>
   );
 }

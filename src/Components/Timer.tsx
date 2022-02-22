@@ -9,12 +9,13 @@ const Timer = ({ milisec }: TimerArgs) => {
   // Estados
   const [segundos, setSegundos] = useState(0);
 
+
   const ref = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     ref.current && clearInterval(ref.current);
     ref.current = setInterval(
-      () => setSegundos((segundos) => segundos + 1),
+      () => setSegundos((s) => s + 1),
       milisec
     );
   }, [milisec]);

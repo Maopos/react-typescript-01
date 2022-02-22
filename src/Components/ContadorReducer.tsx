@@ -1,23 +1,61 @@
-import { Text, Box, Button, Stack, Flex } from "@chakra-ui/react";
-import { useState } from "react";
+import { Box, Button, Flex, Stack, Text } from "@chakra-ui/react";
+import { type } from "os";
+import { useReducer } from "react";
 
-const Counter = () => {
-  // Estado
-  const [counter, setCounter] = useState(0);
+const initialState = {
+  contador: 0,
+};
 
-  const incrementar = (numero: number = 1): void => {
-    setCounter(counter + numero);
-  };
+type ActionType =
+  | { type: "incrementar" }
+  | { type: "decrementar" }
+  | { type: "reset" }
+  | { type: "custom", payload: number };
+
+const contadorReducer = (state: typeof initialState, action: ActionType) => {
+  switch (action.type) {
+    case "incrementar":
+      return {
+        ...state,
+        contador: state.contador + 1,
+      };
+
+    case "decrementar":
+      return {
+        ...state,
+        contador: state.contador - 1,
+      };
+
+    case "reset":
+      return {
+        ...state,
+        contador: (state.contador = 0),
+      };
+
+    case "custom":
+      return {
+        ...state,
+        contador: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+
+const ContadorReducer = () => {
+  // useReducer
+  const [contadorState, dispatch] = useReducer(contadorReducer, initialState);
 
   return (
     <Box
       color={"white"}
       bg={"darkcyan"}
       width={[
-        '90%', // 0-30em
+        "90%", // 0-30em
         null, // 30em-48em
         null, // 48em-62em
-        'container.md', // 62em+
+        "container.md", // 62em+
       ]}
       p={"5"}
       mt={2}
@@ -33,10 +71,10 @@ const Counter = () => {
         p={["0 4%", null, "0 20%"]}
       >
         <Text fontSize={"xl"} textAlign="center" fontWeight={"normal"}>
-          Counter useState
+          Counter useReducer
         </Text>
         <Text fontSize={"xl"} textAlign="center" fontWeight={"thin"}>
-          Valor: {counter}
+          Valor: {contadorState.contador}
         </Text>
         <Stack
           direction={{ base: "column", md: "row" }}
@@ -56,7 +94,7 @@ const Counter = () => {
               color: "black",
               bg: "white",
             }}
-            onClick={() => incrementar()}
+            onClick={() => dispatch({ type: "incrementar" })}
           >
             + 1
           </Button>
@@ -72,9 +110,9 @@ const Counter = () => {
               color: "black",
               bg: "white",
             }}
-            onClick={() => incrementar(2)}
+            onClick={() => dispatch({ type: "decrementar" })}
           >
-            + 2
+            - 1
           </Button>
           <Button
             variant="outline"
@@ -88,9 +126,25 @@ const Counter = () => {
               color: "black",
               bg: "white",
             }}
-            onClick={() => setCounter(0)}
+            onClick={() => dispatch({ type: "reset" })}
           >
             Reset
+          </Button>
+          <Button
+            variant="outline"
+            size={"sm"}
+            textTransform={"uppercase"}
+            fontWeight={"light"}
+            color="white"
+            borderRadius={10}
+            letterSpacing={"1px"}
+            _hover={{
+              color: "black",
+              bg: "white",
+            }}
+            onClick={() => dispatch({ type: "custom", payload: 100 })}
+          >
+            100
           </Button>
         </Stack>
       </Flex>
@@ -98,4 +152,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default ContadorReducer;

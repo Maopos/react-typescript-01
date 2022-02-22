@@ -31,7 +31,7 @@ const Usuario = () => {
         p={["0 4%", null, "0 20%"]}
       >
         <Text color={"white"} fontSize={"xl"} textAlign={"center"} p={2}>
-          Usuario
+          Usuario useState
         </Text>
         <Stack direction={{ base: "column" }} spacing={4} my="10px" p={1}>
           <Button
